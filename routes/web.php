@@ -33,17 +33,17 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/produk', function () {
-    return view('admin.produk.produk');
-});
+Route::get('/admin/produk', 'Admin\ProdukController@index');
+Route::get('/admin/produk/tambahproduk', 'Admin\ProdukController@addForm');
+Route::post('/admin/produk/tambahproduk', 'Admin\ProdukController@addForm');
+Route::get('/admin/produk/editproduk/{id}', 'Admin\ProdukController@editForm');
+Route::post('/admin/produk/editproduk/{id}', 'Admin\ProdukController@editForm');
 
-Route::get('/admin/kategori', function () {
-    return view('admin.kategori.kategori');
-});
-
-Route::get('/admin/tambahkategori', function () {
-    return view('admin.kategori.tambahkategori');
-});
+Route::get('/admin/kategori', 'Admin\KategoriController@index');
+Route::get('/admin/kategori/tambahkategori', 'Admin\KategoriController@addForm');
+Route::post('/admin/kategori/tambahkategori', 'Admin\KategoriController@addForm');
+Route::get('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
+Route::post('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
 
 Route::get('/admin/ongkir', function () {
     return view('admin.ongkir.ongkir');
@@ -53,9 +53,7 @@ Route::get('/admin/tambahongkir', function () {
     return view('admin.ongkir.tambahongkir');
 });
 
-Route::get('/admin/tambahproduk', function () {
-    return view('admin.produk.tambahproduk');
-});
+
 
 Route::get('/admin/pesanan', function () {
     return view('admin.pesanan.pesanan');

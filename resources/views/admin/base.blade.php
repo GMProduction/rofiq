@@ -40,42 +40,42 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/">
+                        <a class="nav-link" id="dashboard" href="/admin/">
                             <i class="ni ni-bullet-list-67"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/kategori">
+                        <a class="nav-link" id="kategori" href="/admin/kategori">
                             <i class="ni ni-ui-04"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Kategori</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/ongkir">
+                        <a class="nav-link" id="ongkir" href="/admin/ongkir">
                             <i class="ni ni-ambulance"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Ongkir</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/produk">
+                        <a class="nav-link" id="produk" href="/admin/produk">
                             <i class="ni ni-box-2"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Produk</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/pesanan">
+                        <a class="nav-link" id="pesanan" href="/admin/pesanan">
                             <i class="ni ni-send"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Pesanan</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin/user">
+                        <a class="nav-link" id="user" href="/admin/user">
                             <i class="ni ni-single-02"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Data User</span>
                         </a>
@@ -119,13 +119,13 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg"
+                                        <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.png')}}"
                                              class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h4 class="mb-0 text-sm">User</h4>
+                                                <h4 class="mb-0 text-sm">Hi, {{auth()->user()->username}}</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -140,10 +140,10 @@
                            aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../assets/img/theme/team-4.png">
+                    <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.png')}}">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">User</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">Hi, {{auth()->user()->username}}</span>
                                 </div>
                             </div>
                         </a>
@@ -190,6 +190,7 @@
 
 <!-- Argon JS -->
 <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
+<script src="{{asset('assets/js/componen.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/DataTables/datatables.min.js')}}"></script>
 <script>
     feather.replace()

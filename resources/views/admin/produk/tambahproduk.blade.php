@@ -46,7 +46,7 @@
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label  for="nama">Nama Produk</label>
+                                            <label for="nama">Nama Produk</label>
                                             <input type="text" required id="nama" name="nama"
                                                    class="form-control">
                                         </div>
@@ -55,9 +55,9 @@
                                     <div class="form-group col-lg-4">
                                         <label for="kategori">Kategori</label>
                                         <select class="form-control" id="kategori" name="kategori">
-                                            <option value="baju">Baju</option>
-                                            <option value="celana">Celana</option>
-                                            <option value="kaos kaki">Kaos Kaki</option>
+                                            @forelse($kategori as $k)
+                                                <option value="{{$k->id}}">{{$k->nama}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 

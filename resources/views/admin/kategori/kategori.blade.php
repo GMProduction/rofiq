@@ -26,7 +26,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="/admin/tambahkategori" class="btn btn-md btn-neutral">Tambah Data</a>
+                        <a href="/admin/kategori/tambahkategori" class="btn btn-md btn-neutral">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -52,24 +52,19 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-{{--                            @foreach($kategori as $p)--}}
+                            @forelse($kategori as $p)
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">Nama Kategori</td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
-                                                <a class="dropdown-item" href="#!">Delete</a>
-                                            </div>
-                                        </div>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
+                                    <td class="text-center">{{$p->nama}}</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-sm" href="/admin/kategori/editkategori/{{$p->id}}">Edit</a>
                                     </td>
                                 </tr>
-{{--                            @endforeach--}}
+                            @empty
+                                <tr>
+                                    <td class="text-center" colspan="3">Belum ada data kategori</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -87,7 +82,6 @@
             $('#tabel').DataTable();
         });
 
-
         function hapus(id, name) {
             Swal.fire({
                 title: 'Apa anda yakin untuk menghapus kategori ?',
@@ -100,9 +94,9 @@
             }).then(async (result) => {
                 if (result.value) {
                     let data = {
-                        '_token' : '{{csrf_token()}}'
+                        '_token': '{{csrf_token()}}'
                     };
-                    let get = await $.post('/admin/kategori/hapus/'+id,data);
+                    let get = await $.post('/admin/kategori/hapus/' + id, data);
                     window.location.reload();
                 }
             })

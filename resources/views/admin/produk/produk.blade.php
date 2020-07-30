@@ -26,7 +26,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="/admin/tambahproduk" class="btn btn-md btn-neutral">Tambah Data</a>
+                        <a href="/admin/produk/tambahproduk" class="btn btn-md btn-neutral">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -47,6 +47,7 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort text-center" data-sort="name">#</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Gambar</th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Nama Produk</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Kategori</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Satuan</th>
@@ -58,13 +59,17 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-{{--                            @foreach($produk as $p)--}}
+                            @forelse($produk as $p)
                                 <tr>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
+                                    <td class="text-center"><img src="{{asset('/uploads/image')}}/{{$p->url}}" height="50"></td>
+                                    <td class="text-center">{{$p->nama}}</td>
+                                    <td class="text-center">{{$p->kategori->nama}}</td>
+                                    <td class="text-center">{{$p->satuan}}</td>
+                                    <td class="text-right">Rp. {{number_format($p->harga,0,',','.')}}</td>
+                                    <td class="text-center">{{$p->deskripsi}}</td>
+                                    <td class="text-center">{{$p->diskon}}</td>
                                     <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"><img src="" height="50"></td>
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
@@ -72,13 +77,17 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
-                                                <a class="dropdown-item" href="#!">Delete</a>
+                                                <a class="dropdown-item" href="/admin/produk/editproduk/{{$p->id}}">Edit</a>
+                                                <a class="dropdown-item" href="#!" onclick="hapus('{{$p->id}}','{{$p->nama}}')">Delete</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-{{--                            @endforeach--}}
+                                @empty
+                                <tr>
+                                    <td class="text-center" colspan="9">Belum ada data produk</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
