@@ -25,6 +25,8 @@
                         <th scope="col" class="sort text-center" data-sort="budget">Nama Produk</th>
                         <th scope="col" class="sort text-center" data-sort="budget">Qty</th>
                         <th scope="col" class="sort text-center" data-sort="completion">satuan</th>
+                        <th scope="col" class="sort text-center" data-sort="completion">Harga</th>
+                        <th scope="col" class="sort text-center" data-sort="completion">Total</th>
                         <th scope="col" class="sort text-center" data-sort="completion">Deskripsi</th>
                     </tr>
                     </thead>
@@ -37,6 +39,8 @@
                         <td class="text-center">Jesrey Persis Solo</td>
                         <td class="text-center"> 3</td>
                         <td class="text-center"> pcs</td>
+                        <td class="text-center"> Rp 100.000</td>
+                        <td class="text-center"> Rp 300.000</td>
                         <td class="text-center">Rofiq(24), topil(21), bambang(3)</td>
 
                     </tr>
@@ -68,7 +72,7 @@
 
                         <div class="col-lg-12 mb-3">
                             <div class="form-group">
-                                <label for="url">Diskon</label>
+                                <label for="url">Ongkir</label>
                                 <input type="number" readonly id="harga" name="harga"
                                        class="form-control">
                             </div>
