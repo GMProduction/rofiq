@@ -7,11 +7,11 @@
 
         <div class="text-left mt-5">
             <h2><i class="mr-3" data-feather="shopping-cart"></i>Cart</h2>
+            <div class="d-block bg-gradient-red mb-2" style="height: 3px; width: 300px; margin-top: 20px">
+            </div>
         </div>
 
-        <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
 
-        </div>
 
         <div class="card">
 
@@ -24,20 +24,20 @@
                         <th scope="col" class="sort text-center" data-sort="completion">gambar</th>
                         <th scope="col" class="sort text-center" data-sort="budget">Nama Produk</th>
                         <th scope="col" class="sort text-center" data-sort="budget">Qty</th>
-                        <th scope="col" class="sort text-center" data-sort="completion">Harga (hari)</th>
+                        <th scope="col" class="sort text-center" data-sort="completion">satuan</th>
                         <th scope="col" class="sort text-center" data-sort="completion">Deskripsi</th>
                     </tr>
                     </thead>
                     <tbody class="list">
                     {{--                    @foreach($produk as $p)--}}
                     <tr>
-                        <td class="text-center"><img src="https://cdn.mos.cms.futurecdn.net/7UKru4akuGz2QcUPp6smqX.jpg"
+                        <td class="text-center">1</td>
+                        <td class="text-center"><img src="{{asset('assets/img/ex/1.jpg')}}"
                                                      style="height: 100px; width: 100px; object-fit: cover"></td>
-                        <td class="text-center">Kamera DSLR</td>
-                        <td class="text-center"> 20</td>
-                        <td class="text-center"> 2</td>
-                        <td class="text-center">@rupiahPrefix(100000)</td>
-                        <td class="text-center">Deskripsi</td>
+                        <td class="text-center">Jesrey Persis Solo</td>
+                        <td class="text-center"> 3</td>
+                        <td class="text-center"> pcs</td>
+                        <td class="text-center">Rofiq(24), topil(21), bambang(3)</td>
 
                     </tr>
                     {{--                    @endforeach--}}
@@ -46,77 +46,14 @@
             </div>
         </div>
 
-
-        <div class="input-daterange datepicker row align-items-center">
-            <div class="col-3 offset-4">
-                <p class="mb-1 text-xs">Tanggal Sewa</p>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Start date" type="text" value="06/18/2020">
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <p class="mb-1 text-xs">Tanggal Kembali</p>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="End date" type="text" value="06/22/2020">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-2 mt-auto mb-auto ml-auto">
-                <a href="/admin/transaksi/cetak" class="btn btn-md btn-primary">Check Out</a>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="text-left mt-5">
-                    <h2><i class="mr-3" data-feather="twitch"></i>Input Voucher</h2>
-                </div>
-
-                <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
-
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="card p-3">
-
-                        <div class="form-group">
-                            <label for="voucher">Voucher</label>
-                            <input type="text" required id="voucher" name="voucher"
-                                   class="form-control">
-                        </div>
-
-                        <div class="row">
-                            <div class="col-8 text-right">
-                                <p class="ml-auto mr-3">Voucher applied</p>
-                            </div>
-                            <div class="col-4 ">
-                                <button type="submit" class="btn btn-lg btn-primary">Apply Voucher</button>
-                            </div>
-                        </div>
+                    <h2><i class="mr-3" data-feather="twitch"></i>Total Harga & Pengiriman</h2>
+                    <div class="d-block bg-gradient-red mb-2" style="height: 3px; width: 300px; margin-top: 20px">
                     </div>
                 </div>
 
-            </div>
 
-            <div class="col-6">
-                <div class="text-left mt-5">
-                    <h2><i class="mr-3" data-feather="twitch"></i>Total Harga</h2>
-                </div>
-
-                <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
-
-                </div>
 
                 <div class="col-lg-12">
                     <div class="card p-3">
@@ -145,7 +82,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group col-lg-4">
+                            <label for="satuan">Kota</label>
+                            <select class="form-control" id="kota" name="kota">
+                                <option value="solo">Solo</option>
+                                <option value="sukoharjo">Sukoharjo</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 mt-auto mb-auto ml-auto">
+                            <a href="/admin/transaksi/cetak" class="btn btn-md btn-danger">Check Out</a>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>

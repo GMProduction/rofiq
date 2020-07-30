@@ -85,6 +85,9 @@
 
                                                             <th scope="col" class="sort" data-sort="completion">Satuan
                                                             </th>
+
+                                                            <th scope="col" class="sort" data-sort="completion">Custom Deskripsi
+                                                            </th>
                                                         </tr>
                                                         </thead>
                                                         <tbody class="list">
@@ -109,6 +112,10 @@
 
                                                             <td class="budget">
                                                                 Pcs
+                                                            </td>
+
+                                                            <td class="budget">
+                                                                Aji(12), Rofiq(2), tofik(4)
                                                             </td>
                                                         </tr>
                                                         </tbody>

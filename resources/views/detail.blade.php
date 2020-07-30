@@ -11,16 +11,41 @@
             <div class="col-5">
                 <p style="font-size: 30px; font-weight: bold" class="mb-3 text-danger">Nama</p>
                 <p style="font-size: 14px; font-weight: bold" class="text-black-50" >Deskripsi Panjang Deskripsi Panjang Deskripsi Panjang Deskripsi Panjang Deskripsi Panjang Deskripsi Panjang Deskripsi Panjang </p>
-                <p style="font-size: 20px; font-weight: bold" class="text-red mb-4">Rp. 100.000 /Hari</p>
+                <del><a style="font-size: 14px; font-weight: bold" class="text-dark mb-9 mr-3 ">Rp. 100.000 /Pcs</a></del> <a style="font-size: 20px; font-weight: bold" class="text-red">Rp. 100.000 /Pcs</a>
 
-                <div style="display: flex" class="mb-4">
+                <div style="display: flex" class="mb-4 mt-3">
                     <a href="#" class="btn btn-white mr-0 quantity__minus text-dark" ><span>-</span></a>
                     <input name="quantity" id="qty" type="number"  class="text-center quantity__input" value="1" style="height: 45px; width: 70px; border: 1px solid #e8e3e3">
                     <a class="btn btn-danger quantity__plus"><span class="text-white">+</span></a>
                 </div>
 
-                <button type="button" class="btn btn-outline-danger w-25"><i data-feather="shopping-cart"></i></button>
-                <button type="button" class="btn  btn-primary w-50">Beli Sekarang</button>
+                <button type="button" class="btn btn-outline-primary mt-0" data-toggle="modal" data-target="#exampleModalCenter">Pre Order (Custom)</button>
+                <button type="button" class="btn btn-primary mt-0" >Pesan Sekarang</button>
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Pre Order</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="deskripsi" class="text-dark" style="font-size: 11px">Custom Deskripsi "isi nama dan nomor punggung. cth: rofiq(24)"</label>
+                                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Pesan Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
