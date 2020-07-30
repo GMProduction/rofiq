@@ -10,7 +10,7 @@
                     <h2><i class="mr-3" data-feather="shopping-cart"></i>Data Barang</h2>
                 </div>
 
-                <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
+                <div class="d-block bg-gradient-danger mb-2" style="height: 3px; width: 300px; margin-top: 20px">
 
                 </div>
 
@@ -25,19 +25,20 @@
                                 <th scope="col" class="sort text-center" data-sort="completion">gambar</th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Nama Produk</th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Qty</th>
-                                <th scope="col" class="sort text-center" data-sort="completion">Harga (hari)</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">satuan</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Deskripsi</th>
                             </tr>
                             </thead>
                             <tbody class="list">
                             {{--                    @foreach($produk as $p)--}}
                             <tr>
-                                <td class="text-center"><img
-                                        src="https://cdn.mos.cms.futurecdn.net/7UKru4akuGz2QcUPp6smqX.jpg"
-                                        style="height: 100px; width: 100px; object-fit: cover"></td>
-                                <td class="text-center">Kamera DSLR</td>
-                                <td class="text-center"> 20</td>
-                                <td class="text-center"> 2</td>
-                                <td class="text-center">@rupiahPrefix(100000)</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center"><img src="{{asset('assets/img/ex/1.jpg')}}"
+                                                             style="height: 100px; width: 100px; object-fit: cover"></td>
+                                <td class="text-center">Jesrey Persis Solo</td>
+                                <td class="text-center"> 3</td>
+                                <td class="text-center"> pcs</td>
+                                <td class="text-center">Rofiq(24), topil(21), bambang(3)</td>
 
                             </tr>
                             {{--                    @endforeach--}}
@@ -52,31 +53,10 @@
                     <div class="pl-lg-4">
                         <div class="row">
 
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="tanggalPinjam">Tanggal Pinjam</label>
-                                    <input type="text" id="tanggalPinjam" name="tanggalPinjam" readonly
-                                           class="form-control" value="">
-                                </div>
-                            </div>
 
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="estimasi">Tanggal Estimasi Kembali</label>
-                                    <input type="text" id="estimasi" name="estimasi" readonly
-                                           class="form-control" value="">
-                                </div>
-                            </div>
 
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="status">Status</label>
-                                    <input type="text" id="status" name="status" readonly
-                                           class="form-control" value="">
-                                </div>
-                            </div>
 
-                            <div class="col-lg-5">
+                            <div class="col-lg-10">
                                 <div class="form-group">
                                     <label class="form-control-label" for="total">Total Harga</label>
                                     <input type="text" id="total" name="total" readonly
@@ -92,7 +72,7 @@
                     <h2><i class="mr-3" data-feather="credit-card"></i>Upload Bukti Pembayaran</h2>
                 </div>
 
-                <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
+                <div class="d-block bg-gradient-danger mb-2" style="height: 3px; width: 300px; margin-top: 20px">
 
                 </div>
 
@@ -140,20 +120,20 @@
             <div class="col-4">
                 <div class="text-left mt-5">
                     <h2><i class="mr-3" data-feather="briefcase"></i>Daftar Bank</h2>
-                    <div class="d-block bg-gradient-blue mb-2" style="height: 3px; width: 300px; margin-top: 20px">
+                    <div class="d-block bg-gradient-danger mb-2" style="height: 3px; width: 300px; margin-top: 20px">
 
                     </div>
 
                     <div class="card text-center p-3 ">
                         <img class="ml-auto mr-auto" src="{{asset('assets/img/bank/bca.png')}}" style="width: 150px;">
                         <h4 class="mb-1">No. rek: 7997971237</h4>
-                        <h5>Holder Name: Zamzuri</h5>
+                        <h5>Holder Name: Rofiq</h5>
                     </div>
 
                     <div class="card text-center p-3 ">
                         <img class="ml-auto mr-auto" src="{{asset('assets/img/bank/bri.png')}}" style="width: 150px;">
                         <h4 class="mb-1">No. rek: 1317997971237</h4>
-                        <h5>Holder Name: Zamzuri</h5>
+                        <h5>Holder Name: Rofiq</h5>
                     </div>
                 </div>
 

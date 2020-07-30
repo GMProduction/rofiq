@@ -47,6 +47,20 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link active" href="/admin/kategori">
+                            <i class="ni ni-ui-04"></i>
+                            <span class="nav-link-text" style="margin-left: 10px">Kategori</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/admin/ongkir">
+                            <i class="ni ni-ambulance"></i>
+                            <span class="nav-link-text" style="margin-left: 10px">Ongkir</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link active" href="/admin/produk">
                             <i class="ni ni-box-2"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Produk</span>

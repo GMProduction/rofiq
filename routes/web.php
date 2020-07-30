@@ -43,6 +43,22 @@ Route::get('/admin/produk', function () {
     return view('admin.produk.produk');
 });
 
+Route::get('/admin/kategori', function () {
+    return view('admin.kategori.kategori');
+});
+
+Route::get('/admin/tambahkategori', function () {
+    return view('admin.kategori.tambahkategori');
+});
+
+Route::get('/admin/ongkir', function () {
+    return view('admin.ongkir.ongkir');
+});
+
+Route::get('/admin/tambahongkir', function () {
+    return view('admin.ongkir.tambahongkir');
+});
+
 Route::get('/admin/tambahproduk', function () {
     return view('admin.produk.tambahproduk');
 });
