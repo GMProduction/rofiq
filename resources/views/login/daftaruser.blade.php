@@ -50,13 +50,13 @@
                         </div>
                         <form method="POST" action="/post-register">
                             @csrf
-
+                            <input type="hidden" name="roles" value="member">
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-merge input-group-alternative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control" id="email" name="email" placeholder="email" type="email">
+                                    <input class="form-control" id="username" name="username" placeholder="Username" type="text">
                                 </div>
                             </div>
 

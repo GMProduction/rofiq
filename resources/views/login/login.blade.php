@@ -48,13 +48,14 @@
                         <div class="text-center text-muted mb-4">
                             <small>Masukan user dan password</small>
                         </div>
-                        <form role="form">
+                        <form role="form" action="/post-login" method="POST">
+                            @csrf
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-merge input-group-alternative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Email" type="email">
+                                    <input class="form-control" placeholder="Username" type="text" name="username">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -62,12 +63,12 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Password" type="password">
+                                    <input class="form-control" placeholder="Password" type="password" name="password">
                                 </div>
                             </div>
 
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary my-4" style="width: 100%">Login</button>
+                                <button type="submit" class="btn btn-primary my-4" style="width: 100%">Login</button>
                                 <a href="/daftaruser" class="btn btn-danger my-1" style="width: 100%">Daftar User</a>
                             </div>
                         </form>

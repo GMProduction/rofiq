@@ -39,21 +39,20 @@
         </div>
 
         <div class="row">
-            {{--            @foreach($products as $v)--}}
-            <div class="col-3">
-                <div class="card" style="height: 350px">
-                    <img class="card-img-top" src="{{asset('assets/img/ex/1.jpg')}}" alt="Card image cap"
-                         style="height: 150px; object-fit: cover; width: 100%">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0"></h5>
-                        <h4 class="card-title text-primary mt-0 mb-1 text-danger">Rp. 50.000/ pcs</h4>
-                        <p class="card-text text-sm text-black-50" style="height: 50px; overflow: hidden">Deskripsi
-                            panjang Deskripsi panjang Deskripsi panjang Deskripsi panjang Deskripsi panjang</p>
-                        <a href="/product/" class="btn btn-danger">Detail</a>
+            @foreach($products as $v)
+                <div class="col-3">
+                    <div class="card" style="height: 350px">
+                        <img class="card-img-top" src="{{asset('uploads/image')}}/{{$v->url}}" alt="Card image cap"
+                             style="height: 150px; object-fit: cover; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">{{ $v->nama }}</h5>
+                            <h4 class="card-title text-primary mt-0 mb-1 text-danger">Rp. {{ number_format($v->harga, 0, ',', '.') }}/ {{ $v->satuan }}</h4>
+                            <p class="card-text text-sm text-black-50" style="height: 50px; overflow: hidden">{{ $v->deskripsi }}</p>
+                            <a href="/product/{{ $v->id }}" class="btn btn-danger">Detail</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{--            @endforeach--}}
+            @endforeach
         </div>
     </section>
 

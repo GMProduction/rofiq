@@ -13,22 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/detail', function () {
-    return view('detail');
-});
-
+Route::get('/', 'Main\MainController@index');
+Route::get('/product/{id}', 'Main\MainController@detail');
+Route::post('/ajax/addToCart', 'Main\TransactionController@addToCart');
+Route::get('/cart', 'Main\TransactionController@cartPage');
+Route::get('/ajax/ongkir', 'Main\TransactionController@getOngkir');
 Route::get('/kontak', function () {
     return view('kontak');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+
 
 Route::get('/payment', function () {
     return view('payment');
@@ -105,6 +99,9 @@ Route::get('/login', function () {
 Route::get('/daftaruser', function () {
     return view('login.daftaruser');
 });
+Route::post('/post-register', 'Auth\AuthController@register');
+Route::post('/post-login', 'Auth\AuthController@login');
+Route::get('/logout', 'Auth\AuthController@logout');
 
 
 //CETAK
