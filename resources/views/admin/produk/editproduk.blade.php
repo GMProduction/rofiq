@@ -86,13 +86,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-lg-4">
-                                        <label for="promo">Promo</label>
-                                        <select class="form-control" id="promo" name="promo">
-                                            <option value="ya">Ya</option>
-                                            <option value="tidak">Tidak</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="form-group col-lg-4">--}}
+{{--                                        <label for="promo">Promo</label>--}}
+{{--                                        <select class="form-control" id="promo" name="promo">--}}
+{{--                                            <option value="ya">Ya</option>--}}
+{{--                                            <option value="tidak">Tidak</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
 
                                     <div class="col-lg-12">
                                         <div class="form-group">

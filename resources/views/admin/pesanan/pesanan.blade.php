@@ -74,33 +74,33 @@
                                 <th scope="col" class="sort text-center" data-sort="completion">Pembayaran</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Status</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Sub Total</th>
-                                <th scope="col" class="sort text-center" data-sort="completion">Diskon</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Ongkir</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Total Harga</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Action</th>
                             </tr>
                             </thead>
                             <tbody class="list">
-                            {{--                            @foreach($produk as $p)--}}
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">psn0001</td>
-                                <td class="text-center">14 Juli 2020</td>
-                                <td class="text-center">Topik Muhajir</td>
-                                <td class="text-center">belum/sudah</td>
-                                <td class="text-center">menunggu/proses/selesai/tolak</td>
-                                <td class="text-center">Rp 40.000</td>
-                                <td class="text-center">Rp 1.000</td>
-                                <td class="text-center">Rp 39.000</td>
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-dribbble" href="/admin/detailpesanan">
-                                            Detail
-                                        </a>
+                            @foreach($transaksi as $p)
+                                <tr>
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center">{{$p->no_transaksi}}</td>
+                                    <td class="text-center">{{$p->created_at}}</td>
+                                    <td class="text-center">{{$p->user->nama}}</td>
+                                    <td class="text-center">{{$p->last_payment == null ? 'Belum ada' : ($p->last_payment == '0' ? 'Menunggu' : ($p->last_payment == '1' ? 'Diterima' : 'Ditolak')) }}</td>
+                                    <td class="text-center">{{$p->status == '0' ? 'Menunggu' : ($p->status == '1' ? 'Proses' : ($p->status == '2' ? 'Selesai' : 'Tolak'))}}</td>
+                                    <td class="text-center">Rp. {{number_format($p->nominal,0,',','.')}}</td>
+                                    <td class="text-center">Rp. {{number_format($p->ongkir,0,',','.')}}</td>
+                                    <td class="text-center">Rp. {{number_format($p->nominal+$p->ongkir,0,',','.')}}</td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-dribbble" href="/admin/pesanan/detailpesanan/{{$p->id}}">
+                                                Detail
+                                            </a>
 
-                                    </div>
-                                </td>
-                            </tr>
-                            {{--                            @endforeach--}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -113,6 +113,10 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $(document).ready(function () {
+            $('#tabel').DataTable();
+        });
+    </script>
 
 @endsection

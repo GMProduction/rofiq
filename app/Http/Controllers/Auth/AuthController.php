@@ -37,7 +37,7 @@ class AuthController extends CustomController
             if ($roles !== 'member') {
                 return redirect('/admin');
             }
-            return redirect('/');
+            return redirect('/user');
         }
         return redirect()->back()->withInput()->with('failed', 'Periksa Kembali Username dan Password Anda');
     }

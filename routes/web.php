@@ -45,27 +45,18 @@ Route::post('/admin/kategori/tambahkategori', 'Admin\KategoriController@addForm'
 Route::get('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
 Route::post('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
 
-Route::get('/admin/ongkir', function () {
-    return view('admin.ongkir.ongkir');
-});
+Route::get('/admin/ongkir', 'Admin\OngkirController@index');
 
-Route::get('/admin/tambahongkir', function () {
-    return view('admin.ongkir.tambahongkir');
-});
+Route::get('/admin/ongkir/tambahongkir', 'Admin\OngkirController@addForm');
+Route::post('/admin/ongkir/tambahongkir', 'Admin\OngkirController@addForm');
+Route::get('/admin/ongkir/editongkir/{id}', 'Admin\OngkirController@editForm');
+Route::post('/admin/ongkir/editongkir/{id}', 'Admin\OngkirController@editForm');
 
+Route::get('/admin/pesanan', 'Admin\TransaksiController@index');
+Route::get('/admin/pesanan/detailpesanan/{id}', 'Admin\TransaksiController@detail');
+Route::post('/admin/pesanan/detailpesanan/{id}', 'Admin\TransaksiController@detail');
 
-
-Route::get('/admin/pesanan', function () {
-    return view('admin.pesanan.pesanan');
-});
-
-Route::get('/admin/detailpesanan', function () {
-    return view('admin.pesanan.detailPesanan');
-});
-
-Route::get('/admin/user', function () {
-    return view('admin.user.user');
-});
+Route::get('/admin/user', 'Admin\UserController@index');
 
 
 //USER
@@ -75,17 +66,12 @@ Route::get('/user', function () {
     return view('user.dashboard');
 });
 
-Route::get('/user/pesanan', function () {
-    return view('user.pesanan.pesanan');
-});
+Route::get('/user/pesanan', 'User\TransaksiController@index');
 
-Route::get('/user/detailpesanan', function () {
-    return view('user.pesanan.detailpesanan');
-});
+Route::get('/user/pesanan/detailpesanan/{id}', 'User\TransaksiController@detail');
 
-Route::get('/user/profil', function () {
-    return view('user.profil.profil');
-});
+Route::get('/user/profil', 'User\ProfileController@index');
+Route::post('/user/profil', 'User\ProfileController@index');
 
 
 //LOGIN

@@ -4,7 +4,7 @@
         <script>
             Swal.fire({
                 title: 'Success',
-                text: 'Berhasil Menyimpan Data',
+                text: 'Berhasil Merubah Data',
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
@@ -40,6 +40,7 @@
                     <div class="card-body">
                         <form method="POST">
                             @csrf
+                            <input id="id" name="id" value="{{$ongkir->id}}" hidden>
                             <h6 class="heading-small text-muted mb-4">Data</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -47,7 +48,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label  for="namakota">Nama kota</label>
-                                            <input type="text" required id="namakota" name="namakota"
+                                            <input type="text" required id="namakota" name="namakota"  value="{{$ongkir->kota}}"
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -55,7 +56,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label  for="biaya">Biaya</label>
-                                            <input type="number" required id="biaya" name="biaya"
+                                            <input type="number" required id="biaya" name="biaya"  value="{{$ongkir->harga}}"
                                                    class="form-control">
                                         </div>
                                     </div>

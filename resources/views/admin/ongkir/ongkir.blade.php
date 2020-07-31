@@ -26,7 +26,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="/admin/tambahongkir" class="btn btn-md btn-neutral">Tambah Data</a>
+                        <a href="/admin/ongkir/tambahongkir" class="btn btn-md btn-neutral">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -53,25 +53,25 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-{{--                            @foreach($ongkir as $p)--}}
+                            @foreach($ongkir as $p)
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">Solo</td>
-                                    <td class="text-center">Rp 14.000</td>
-                                    <td class="text-right">
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center">{{$p->kota}}</td>
+                                    <td class="text-center">Rp {{number_format($p->harga,0,',','.')}}</td>
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
+                                                <a class="dropdown-item" href="/admin/ongkir/editongkir/{{$p->id}}">Edit</a>
                                                 <a class="dropdown-item" href="#!">Delete</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-{{--                            @endforeach--}}
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
