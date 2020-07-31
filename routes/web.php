@@ -18,6 +18,9 @@ Route::get('/product/{id}', 'Main\MainController@detail');
 Route::post('/ajax/addToCart', 'Main\TransactionController@addToCart');
 Route::get('/cart', 'Main\TransactionController@cartPage');
 Route::get('/ajax/ongkir', 'Main\TransactionController@getOngkir');
+Route::post('/ajax/cekout', 'Main\TransactionController@cekOut');
+Route::get('/payment/{id}', 'Main\TransactionController@pagePayment');
+Route::post('/payment/send', 'Main\TransactionController@send');
 Route::get('/kontak', function () {
     return view('kontak');
 });
@@ -73,21 +76,14 @@ Route::get('/admin/user', function () {
 //USER
 
 
-Route::get('/user', function () {
-    return view('user.dashboard');
-});
+Route::get('/user', 'Main\MainController@dashboard');
 
-Route::get('/user/pesanan', function () {
-    return view('user.pesanan.pesanan');
-});
+Route::get('/user/pesanan', 'Main\TransactionController@pageTransaksi');
 
-Route::get('/user/detailpesanan', function () {
-    return view('user.pesanan.detailpesanan');
-});
+Route::get('/user/pesanan/{id}', 'Main\TransactionController@detailHistory');
 
-Route::get('/user/profil', function () {
-    return view('user.profil.profil');
-});
+Route::get('/user/profil', 'Main\MainController@profile');
+Route::post('/user/profil/update', 'Main\MainController@updateProfile');
 
 
 //LOGIN

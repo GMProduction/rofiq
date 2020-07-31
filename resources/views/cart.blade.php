@@ -32,7 +32,7 @@
                     <tbody class="list">
                     @foreach($carts as $v)
                         <tr>
-                            <td class="text-center">1</td>
+                            <td class="text-center">{{ $loop->index + 1 }}</td>
                             <td class="text-center"><img src="{{asset('/uploads/image')}} / {{ $v->product->url }}"
                                                          style="height: 100px; width: 100px; object-fit: cover"></td>
                             <td class="text-center">{{ $v->product->nama }}</td>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-lg-2 mt-auto mb-auto ml-auto">
-                        <a href="/admin/transaksi/cetak" class="btn btn-md btn-danger">Check Out</a>
+                        <button id="btn-cekout" type="button" class="btn btn-md btn-danger">Check Out</button>
                     </div>
 
                 </div>
@@ -113,7 +113,17 @@
     <script>
         let subtotal = 0, ongkir = 0, total = 0;
 
-        function hitungTotal() {
+        async function hitungTotal() {
+            let code = $('#kota').val();
+            let res = await $.get('/ajax/ongkir?id=' + code);
+            if (res['status'] === 200 && res['payload'] !== null) {
+                let amount = res['payload']['harga'];
+                ongkir = amount;
+                $('#ongkir').val('Rp. ' + amount);
+            } else {
+                ongkir = 0;
+                $('#ongkir').val(ongkir);
+            }
             subtotal = '{{ $subTotal }}';
             total = parseInt(ongkir) + parseInt(subtotal);
             $('#subtotal').val(subtotal);
@@ -122,20 +132,27 @@
         }
 
         $(document).ready(function () {
+
             hitungTotal();
-            $('#kota').on('click', async function (e) {
+            $('#kota').on('click', function (e) {
                 e.preventDefault();
-                let code = $('#kota').val();
-                let res = await $.get('/ajax/ongkir?id=' + code);
+                hitungTotal();
+            });
+
+            $('#btn-cekout').on('click', async function (e) {
+                e.preventDefault();
+                let data = {
+                    '_token': '{{ csrf_token() }}',
+                    ongkir: $('#ongkir').val(),
+                    nominal: $('#total').val(),
+                };
+                let res = await $.post('/ajax/cekout', data);
                 if (res['status'] === 200 && res['payload'] !== null) {
-                    let amount = res['payload']['harga'];
-                    ongkir = amount;
-                    $('#ongkir').val('Rp. ' + amount);
-                    hitungTotal();
+                    let id = res['payload'];
+                    alert('Sewa Berhasil');
+                    window.location.href = '/payment/'+id;
                 } else {
-                    ongkir = 0;
-                    $('#ongkir').val(ongkir);
-                    hitungTotal();
+                    alert('Sewa gagal');
                 }
             });
         });

@@ -106,7 +106,7 @@
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h4 class="mb-0 text-sm">John Snow</h4>
+                                                <h4 class="mb-0 text-sm">{{ auth()->user()->nama }}</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                     <img alt="Image placeholder" src="../assets/img/theme/team-4.png">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->nama }}</span>
                                 </div>
                             </div>
                         </a>

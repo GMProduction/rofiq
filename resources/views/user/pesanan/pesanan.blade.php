@@ -8,12 +8,6 @@
                 <div class="row align-items-center py-4">
                     <div class="col-lg-4 col-4">
                         <h6 class="h2 text-white d-inline-block mb-0">Data Pesanan</h6>
-                        {{--                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">--}}
-                        {{--                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">--}}
-                        {{--                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>--}}
-                        {{--                                <li class="breadcrumb-item"><a href="#">Data Pesanan</a></li>--}}
-                        {{--                            </ol>--}}
-                        {{--                        </nav>--}}
                     </div>
 
                     <div class="col-lg-8 col-8">
@@ -73,32 +67,60 @@
                                 <th scope="col" class="sort text-center" data-sort="completion">Pembayaran</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Status</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Sub Total</th>
-                                <th scope="col" class="sort text-center" data-sort="completion">Diskon</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Ongkir</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Total Harga</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Action</th>
                             </tr>
                             </thead>
                             <tbody class="list">
-                            {{--                            @foreach($produk as $p)--}}
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">psn0001</td>
-                                <td class="text-center">14 Juli 2020</td>
-                                <td class="text-center">belum/sudah</td>
-                                <td class="text-center">menunggu/proses/selesai/tolak</td>
-                                <td class="text-center">Rp 40.000</td>
-                                <td class="text-center">Rp 1.000</td>
-                                <td class="text-center">Rp 39.000</td>
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-dribbble" href="/user/detailpesanan">
-                                            Detail
-                                        </a>
+                            @foreach($transaction as $v)
+                                <tr>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
+                                    <td class="text-center">{{ $v->no_transaksi }}</td>
+                                    <td class="text-center">{{ $v->created_at }}</td>
+                                    <td class="text-center">
+                                        @switch($v->payment->status)
+                                            @case('0')
+                                            Menunggu Konfirmasi
+                                            @break
+                                            @case('1')
+                                            Di Terima
+                                            @break
+                                            @case('2')
+                                            Di Tolak
+                                            @break
+                                            @default
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td class="text-center">
+                                        @switch($v->payment->status)
+                                            @case('0')
+                                            Menunggu Konfirmasi
+                                            @break
+                                            @case('1')
+                                            Di Terima
+                                            @break
+                                            @case('2')
+                                            Di Tolak
+                                            @break
+                                            @default
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td class="text-center">Rp {{ number_format($v->nominal, 0, ',', '.')}}</td>
+                                    <td class="text-center">Rp {{ number_format($v->ongkir, 0, ',', '.')}}</td>
+                                    <td class="text-center">Rp {{ number_format($v->nominal + $v->ongkir, 0, ',', '.')}}</td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-dribbble" href="/user/pesanan/{{ $v->id }}">
+                                                Detail
+                                            </a>
 
-                                    </div>
-                                </td>
-                            </tr>
-                            {{--                            @endforeach--}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

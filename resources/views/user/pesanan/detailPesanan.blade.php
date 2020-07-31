@@ -44,32 +44,53 @@
 
                                                             <th scope="col" class="sort" data-sort="completion">Satuan
                                                             </th>
+                                                            <th scope="col" class="sort" data-sort="completion">Harga
+                                                            </th>
+                                                            <th scope="col" class="sort" data-sort="completion">Total
+                                                            </th>
+                                                            <th scope="col" class="sort" data-sort="completion">Detail
+                                                            </th>
                                                         </tr>
                                                         </thead>
                                                         <tbody class="list">
-                                                        <tr>
+                                                        @foreach($trans->cart as $v)
+                                                            <tr>
 
-                                                            <td class="budget">
-                                                                1
-                                                            </td>
+                                                                <td class="budget">
+                                                                    {{ $loop->index + 1 }}
+                                                                </td>
 
-                                                            <td class="budget">
+                                                                <td class="budget">
+                                                                    <img
+                                                                        src="{{asset('/images/uploads')}} / {{ $v->product->url }}"
+                                                                        style="height: 100px; width: 100px; object-fit: cover">
+                                                                </td>
 
-                                                            </td>
-
-                                                            <td class="budget">
-                                                                Jersey Persis Solo
-                                                            </td>
+                                                                <td class="budget">
+                                                                    {{ $v->product->nama}}
+                                                                </td>
 
 
-                                                            <td class="budget">
-                                                                12
-                                                            </td>
+                                                                <td class="budget">
+                                                                    {{ $v->qty }}
+                                                                </td>
 
-                                                            <td class="budget">
-                                                                Pcs
-                                                            </td>
-                                                        </tr>
+                                                                <td class="budget">
+                                                                    {{ $v->product->satuan }}
+                                                                </td>
+
+                                                                <td class="budget">
+                                                                    Rp {{ number_format($v->harga, 0, ',', '.')}}
+                                                                </td>
+
+                                                                <td class="budget">
+                                                                    Rp {{ number_format($v->harga * $v->qty, 0, ',', '.')}}
+                                                                </td>
+                                                                <td class="budget">
+                                                                    {{ $v->detail }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -90,17 +111,33 @@
 
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="tanggalPinjam">Tanggal Pesan</label>
+                                                <label class="form-control-label" for="tanggalPinjam">Tanggal
+                                                    Pesan</label>
                                                 <input type="text" id="tanggalPinjam" name="tanggalPinjam" readonly
-                                                       class="form-control" value="">
+                                                       class="form-control" value="{{ $trans->created_at }}">
                                             </div>
                                         </div>
-
+                                        @php
+                                            $status = "Menunggu Konfirmasi"
+                                        @endphp
+                                        @switch($trans->status)
+                                            @case('0')
+                                            {{ $status = "Menunggu Konfirmasi" }}
+                                            @break
+                                            @case('1')
+                                            {{ $status = "Di Terima" }}
+                                            @break
+                                            @case('2')
+                                            {{ $status = "Di Tolak" }}
+                                            @break
+                                            @default
+                                            @break
+                                        @endswitch
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="status">Status</label>
                                                 <input type="text" id="status" name="status" readonly
-                                                       class="form-control" value="">
+                                                       class="form-control" value="{{ $status }}">
                                             </div>
                                         </div>
 
@@ -108,7 +145,8 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="total">Total Harga</label>
                                                 <input type="text" id="total" name="total" readonly
-                                                       class="form-control" value="">
+                                                       class="form-control"
+                                                       value="Rp. {{ number_format($trans->nominal + $trans->ongkir, 0, ',', '.') }}">
                                             </div>
                                         </div>
 
@@ -116,7 +154,9 @@
                                         <hr class="my-4"/>
                                         <!-- Description -->
                                         <div class="col-12 text-right">
-                                            <a type="submit" href="https://wa.me/628975050520?text=Saya%20ingin%20dengan%20menanyakan%20pesanan" class="btn btn-lg btn-success">Contact Admin</a>
+                                            <a type="submit"
+                                               href="https://wa.me/628975050520?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
+                                               class="btn btn-lg btn-success">Contact Admin</a>
                                         </div>
                                     </div>
                                 </div>
