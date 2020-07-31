@@ -17,37 +17,39 @@
                     </div>
 
                     <div class="col-lg-8 col-8">
-                        <div class="row">
-                            <div class="input-daterange datepicker row align-items-center">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
+                        <form action="/admin/pesanan/cetak" method="get">
+                            <div class="row">
+                                <div class="input-daterange datepicker row align-items-center">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
                                                 <span class="input-group-text"><i
                                                         class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="form-control" placeholder="Start date" type="text"
+                                                       value="06/18/2020" name="awal">
                                             </div>
-                                            <input class="form-control" placeholder="Start date" type="text"
-                                                   value="06/18/2020">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                        class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="form-control" placeholder="End date" type="text"
+                                                       value="06/22/2020" name="akhir">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i
-                                                        class="ni ni-calendar-grid-58"></i></span>
-                                            </div>
-                                            <input class="form-control" placeholder="End date" type="text"
-                                                   value="06/22/2020">
-                                        </div>
-                                    </div>
+                                <div class="col-lg-2 mb-auto">
+                                    <button type="submit" href="" class="btn btn-md btn-neutral">Cetak</button>
                                 </div>
                             </div>
-                            <div class="col-lg-2 mb-auto">
-                                <a href="/admin/pesanan/cetak" class="btn btn-md btn-neutral">Cetak</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
