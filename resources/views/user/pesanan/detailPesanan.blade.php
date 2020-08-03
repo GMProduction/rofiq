@@ -102,8 +102,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form action="/user/pemohon/update" method="POST">
-                                @csrf
+                            <form action="/user/profil/update" method="POST">
                                 <input type="hidden" name="id" value="">
                                 <h6 class="heading-small text-muted mb-1"></h6>
                                 <div class="pl-lg-4">

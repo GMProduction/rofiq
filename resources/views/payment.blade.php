@@ -34,7 +34,7 @@
                             <tbody class="list">
                             @foreach($transaction->cart as $v)
                                 <tr>
-                                    <td class="text-center">1</td>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
                                     <td class="text-center"><img src="{{ asset('/uploads/image') }}/{{ $v->product->url }}"
                                                                  style="height: 100px; width: 100px; object-fit: cover">
                                     </td>

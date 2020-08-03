@@ -72,6 +72,7 @@
                     <div class="card-body">
                         <h5 class="card-title mb-0">{{ $v->nama }}</h5>
                         <h4 class="card-title text-primary mt-0 mb-1 text-danger">Rp. {{ number_format($v->harga, 0, ',', '.') }}/ pcs</h4>
+                        <h6 class="card-title mb-0">{{ $v->kategori->nama }}</h6>
                         <p class="card-text text-sm text-black-50" style="height: 50px; overflow: hidden">{{ $v->deskripsi }}</p>
                         <a href="/product/{{ $v->id }}" class="btn btn-danger">Detail</a>
                     </div>

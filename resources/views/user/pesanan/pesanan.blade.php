@@ -94,7 +94,7 @@
                                         @endswitch
                                     </td>
                                     <td class="text-center">
-                                        @switch($v->payment->status)
+                                        @switch($v->status)
                                             @case('0')
                                             Menunggu Konfirmasi
                                             @break
