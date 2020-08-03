@@ -38,7 +38,7 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data">
+                        <form method="POST">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Data</h6>
                             <div class="pl-lg-4">

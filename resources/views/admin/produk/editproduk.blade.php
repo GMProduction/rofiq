@@ -11,7 +11,7 @@
         </script>
     @endif
     <!-- Header -->
-    <div class="header bg-primary pb-6">
+    <div class="header bg-translucent-dark pb-6">
         <div class="container-fluid">
             <div class="header-body">
                 <div class="row align-items-center py-4">
@@ -45,25 +45,58 @@
                             <div class="pl-lg-4">
                                 <div class="row">
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label  for="nama">Nama Produk</label>
+                                            <label for="nama">Nama Produk</label>
                                             <input type="text" required id="nama" name="nama" value="{{$produk->nama}}"
                                                    class="form-control">
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="form-group col-lg-4">
+                                        <label for="kategori">Kategori</label>
+                                        <select class="form-control" id="kategori" name="kategori">
+                                            @forelse($kategori as $k)
+                                                <option value="{{$k->id}}">{{$k->nama}}</option>
+                                                @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="satuan">Satuan</label>
+                                        <select class="form-control" id="satuan" name="satuan">
+                                            <option value="pcs">Pcs</option>
+                                            <option value="lusin">Lusin</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label for="url">Harga</label>
+                                            <label for="harga">Harga</label>
                                             <input type="number" required id="harga" name="harga" value="{{$produk->harga}}"
                                                    class="form-control">
                                         </div>
                                     </div>
 
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="diskon">Diskon</label>
+                                            <input type="number" required id="diskon" name="diskon" value="{{$produk->diskon}}"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+
+{{--                                    <div class="form-group col-lg-4">--}}
+{{--                                        <label for="promo">Promo</label>--}}
+{{--                                        <select class="form-control" id="promo" name="promo">--}}
+{{--                                            <option value="ya">Ya</option>--}}
+{{--                                            <option value="tidak">Tidak</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="url">Deskripsi</label>
+                                            <label for="deskripsi">Deskripsi</label>
                                             <input type="text" required id="deskripsi" name="deskripsi" value="{{$produk->deskripsi}}"
                                                    class="form-control">
                                         </div>
@@ -71,6 +104,7 @@
                                     <div class="col-lg-12 mb-3">
                                         <img src="{{asset('uploads/image')}}/{{$produk->url}}" height="200">
                                     </div>
+
                                     <div class="col-lg-6">
                                         <a>Gambar</a>
                                         <div class="custom-file">
@@ -103,6 +137,13 @@
 @endsection
 
 @section('script')
-
+<script>
+    $(document).ready(function () {
+        $('#satuan').val('{{$produk->satuan}}');
+        $('#kategori').val('{{$produk->kategori_id}}');
+        $('#satuan').formSelect();
+        $('#kategori').formSelect();
+    });
+</script>
 
 @endsection

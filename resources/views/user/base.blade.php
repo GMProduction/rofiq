@@ -38,7 +38,7 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/">
+                        <a class="nav-link" id="dashboard" href="/user/">
                             <i class="ni ni-bullet-list-67"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Dashboard</span>
                         </a>
@@ -47,7 +47,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/pesanan">
+                        <a class="nav-link" id="pesanan" href="/user/pesanan">
                             <i class="ni ni-send"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Transaksi</span>
                         </a>
@@ -55,7 +55,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/profil">
+                        <a class="nav-link" id="profil" href="/user/profil">
                             <i class="ni ni-single-02"></i>
                             <span class="nav-link-text" style="margin-left: 10px">Profil</span>
                         </a>
@@ -70,7 +70,7 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav mb-md-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" target="/logout">
+                        <a class="nav-link" href="/logout" target="">
                             <i class="text-red " data-feather="log-out"></i>
                             <span class="nav-link-text text-red" style="margin-left: 10px">keluar</span>
                         </a>
@@ -100,13 +100,13 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg"
+                                        <img alt="Image placeholder" src="{{asset('assets/img/theme/team-1.jpg')}}"
                                              class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h4 class="mb-0 text-sm">{{ auth()->user()->nama }}</h4>
+                                                <h4 class="mb-0 text-sm">Hi, {{auth()->user()->username}}</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -121,10 +121,10 @@
                            aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../assets/img/theme/team-4.png">
+                    <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.png')}}">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->nama }}</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">Hi, {{auth()->user()->username}}</span>
                                 </div>
                             </div>
                         </a>
@@ -171,6 +171,7 @@
 
 <!-- Argon JS -->
 <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
+<script src="{{asset('assets/js/componen.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/DataTables/datatables.min.js')}}"></script>
 <script>
     feather.replace()

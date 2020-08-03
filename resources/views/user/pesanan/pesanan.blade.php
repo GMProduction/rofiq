@@ -10,39 +10,39 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Data Pesanan</h6>
                     </div>
 
-                    <div class="col-lg-8 col-8">
-                        <div class="row">
-                            <div class="input-daterange datepicker row align-items-center">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i
-                                                        class="ni ni-calendar-grid-58"></i></span>
-                                            </div>
-                                            <input class="form-control" placeholder="Start date" type="text"
-                                                   value="06/18/2020">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i
-                                                        class="ni ni-calendar-grid-58"></i></span>
-                                            </div>
-                                            <input class="form-control" placeholder="End date" type="text"
-                                                   value="06/22/2020">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 mb-auto">
-                                <a href="/admin/pesanan/cetak" class="btn btn-md btn-neutral">Cetak</a>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-8 col-8">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="input-daterange datepicker row align-items-center">--}}
+{{--                                <div class="col">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <div class="input-group">--}}
+{{--                                            <div class="input-group-prepend">--}}
+{{--                                                <span class="input-group-text"><i--}}
+{{--                                                        class="ni ni-calendar-grid-58"></i></span>--}}
+{{--                                            </div>--}}
+{{--                                            <input class="form-control" placeholder="Start date" type="text"--}}
+{{--                                                   value="06/18/2020">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <div class="input-group">--}}
+{{--                                            <div class="input-group-prepend">--}}
+{{--                                                <span class="input-group-text"><i--}}
+{{--                                                        class="ni ni-calendar-grid-58"></i></span>--}}
+{{--                                            </div>--}}
+{{--                                            <input class="form-control" placeholder="End date" type="text"--}}
+{{--                                                   value="06/22/2020">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-2 mb-auto">--}}
+{{--                                <a href="/admin/pesanan/cetak" class="btn btn-md btn-neutral">Cetak</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -133,6 +133,10 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $(document).ready(function () {
+            $('#tabel').DataTable();
+        });
+    </script>
 
 @endsection

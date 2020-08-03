@@ -41,23 +41,26 @@
         <th> No Pesanan</th>
         <th> Tanggal Pesan</th>
         <th> Nama Pemesan</th>
+        <th> Status Pembayaran</th>
         <th> Status</th>
         <th> Sub Total</th>
-        <th> Diskon </th>
-        <th> Total Harga </th>
-        <th> Status</th>
+        <th> Ongkir</th>
+        <th> Total Harga</th>
     </tr>
     @php $i=1; @endphp
-{{--    @foreach($mitra as $m)--}}
-{{--        <tr>--}}
-{{--            <td> {{$i++}}</td>--}}
-{{--            <td> {{$m->username}}</td>--}}
-{{--            <td> {{$m->email}}</td>--}}
-{{--            <td> {{$m->noHp}}</td>--}}
-{{--            <td> {{$m->alamat}}</td>--}}
-
-{{--        </tr>--}}
-{{--    @endforeach--}}
+    @foreach($transaksi as $p)
+        <tr>
+            <td class="text-center">{{$loop->index+1}}</td>
+            <td class="text-center">{{$p->no_transaksi}}</td>
+            <td class="text-center">{{$p->created_at}}</td>
+            <td class="text-center">{{$p->user->nama}}</td>
+            <td class="text-center">{{$p->last_payment == null ? 'Belum ada' : ($p->last_payment == '0' ? 'Menunggu' : ($p->last_payment == '1' ? 'Diterima' : 'Ditolak')) }}</td>
+            <td class="text-center">{{$p->status == '0' ? 'Menunggu' : ($p->status == '1' ? 'Proses' : ($p->status == '2' ? 'Selesai' : 'Tolak'))}}</td>
+            <td class="text-center">Rp. {{number_format($p->nominal,0,',','.')}}</td>
+            <td class="text-center">Rp. {{number_format($p->ongkir,0,',','.')}}</td>
+            <td class="text-center">Rp. {{number_format($p->nominal+$p->ongkir,0,',','.')}}</td>
+        </tr>
+    @endforeach
 </table>
 <div style="right:10px;width: 300px;display: inline-block;margin-top:70px">
     <p class="text-center mb-5">Pimpinan</p>
@@ -67,7 +70,7 @@
 <div style="left:10px;width: 300px; margin-left : 100px;display: inline-block">
     <p class="text-center mb-5">Admin</p>
     <p class="text-center">(
-{{--        {{auth()->user()->username}}--}}
+                {{auth()->user()->username}}
         )</p>
 </div>
 
@@ -75,7 +78,7 @@
 <footer class="footer">
     @php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') ); @endphp
     <p class="text-right small mb-0 mt-0 pt-0 pb-0"> di cetak oleh :
-{{--        {{auth()->user()->username}}--}}
+                {{auth()->user()->username}}
     </p>
     <p class="text-right small mb-0 mt-0 pt-0 pb-0"> tgl: {{ $date->format('d F Y, H:i:s') }} </p>
 </footer>

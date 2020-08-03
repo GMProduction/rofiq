@@ -36,41 +36,30 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/produk', function () {
-    return view('admin.produk.produk');
-});
+Route::get('/admin/produk', 'Admin\ProdukController@index');
+Route::get('/admin/produk/tambahproduk', 'Admin\ProdukController@addForm');
+Route::post('/admin/produk/tambahproduk', 'Admin\ProdukController@addForm');
+Route::get('/admin/produk/editproduk/{id}', 'Admin\ProdukController@editForm');
+Route::post('/admin/produk/editproduk/{id}', 'Admin\ProdukController@editForm');
 
-Route::get('/admin/kategori', function () {
-    return view('admin.kategori.kategori');
-});
+Route::get('/admin/kategori', 'Admin\KategoriController@index');
+Route::get('/admin/kategori/tambahkategori', 'Admin\KategoriController@addForm');
+Route::post('/admin/kategori/tambahkategori', 'Admin\KategoriController@addForm');
+Route::get('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
+Route::post('/admin/kategori/editkategori/{id}', 'Admin\KategoriController@editForm');
 
-Route::get('/admin/tambahkategori', function () {
-    return view('admin.kategori.tambahkategori');
-});
+Route::get('/admin/ongkir', 'Admin\OngkirController@index');
 
-Route::get('/admin/ongkir', function () {
-    return view('admin.ongkir.ongkir');
-});
+Route::get('/admin/ongkir/tambahongkir', 'Admin\OngkirController@addForm');
+Route::post('/admin/ongkir/tambahongkir', 'Admin\OngkirController@addForm');
+Route::get('/admin/ongkir/editongkir/{id}', 'Admin\OngkirController@editForm');
+Route::post('/admin/ongkir/editongkir/{id}', 'Admin\OngkirController@editForm');
 
-Route::get('/admin/tambahongkir', function () {
-    return view('admin.ongkir.tambahongkir');
-});
+Route::get('/admin/pesanan', 'Admin\TransaksiController@index');
+Route::get('/admin/pesanan/detailpesanan/{id}', 'Admin\TransaksiController@detail');
+Route::post('/admin/pesanan/detailpesanan/{id}', 'Admin\TransaksiController@detail');
 
-Route::get('/admin/tambahproduk', function () {
-    return view('admin.produk.tambahproduk');
-});
-
-Route::get('/admin/pesanan', function () {
-    return view('admin.pesanan.pesanan');
-});
-
-Route::get('/admin/detailpesanan', function () {
-    return view('admin.pesanan.detailPesanan');
-});
-
-Route::get('/admin/user', function () {
-    return view('admin.user.user');
-});
+Route::get('/admin/user', 'Admin\UserController@index');
 
 
 //USER
